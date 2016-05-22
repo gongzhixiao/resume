@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0,user-scalable=no">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        html, body {
+            width: 100%;
+            height: 100%;
+            background: #eee;
+            overflow: hidden;
+        }
+
+        .music {
+            display: none;
+            position: absolute;
+            top: 20px;
+            z-index: 10;
+            right: 20px;
+            width: 36px;
+            height: 36px;
+            background: url("audioFile/music.svg") no-repeat;
+            background-size: 100% 100%;
+        }
+
+        .musicMove {
+            -webkit-animation: musicMove 1s linear 0s infinite;
+            animation: musicMove 1s linear 0s infinite;
+            -webkit-animation-fill-mode: both;
+            animation-fill-mode: both;
+        }
+
+        @-webkit-keyframes musicMove {
+            0% {
+                -webkit-transform: rotate(0deg);
+                transform: rotate(0deg);
+            }
+            100% {
+                -webkit-transform: rotate(360deg);
+                transform: rotate(360deg);
+            }
+        }
+
+        @keyframes musicMove {
+            0% {
+                -webkit-transform: rotate(0deg);
+                transform: rotate(0deg);
+            }
+            100% {
+                -webkit-transform: rotate(360deg);
+                transform: rotate(360deg);
+            }
+        }
+
+        .music audio {
+            display: none;
+        }
+
+        body, html {
+            margin: 0;
+            height: 100%;
+            line-height: 2.0;
+            font-family: 'Microsoft YaHei';
+            overflow-y: hidden;
+        }
+
+        /*turning 元素*/
+        .page {
+            position: absolute;
+            top: 0;
+            height: 100%;
+            width: 100%;
+            background: url("img/209148-106.jpg") center no-repeat;
+            background-size: 100% 100%;
+        }
+
+        .contain {
+            margin: 0 auto;
+            padding-top:60px;
+            position: relative;
+            width: 100%;
+            max-width: 320px;
+            _width: 320px;
+            height: 100%;
+            color: #000;
+            z-index: 2;
+            -webkit-transition: all .7s ease-out .1s;
+            -moz-transition: all .7s ease-out .1s;
+            -o-transition: all .7s ease-out .1s;
+            transition: all .7s ease-out .1s
+        }
+        .contain span{
+            display: block;
+            font-size: 25px;
+            color: white;
+            text-align: center;
+            line-height: 100px;
+        }
+        .contain2 {
+            margin: 0 auto;
+            position: relative;
+            padding-top: 60px;
+            width: 100%;
+            max-width: 320px;
+            _width: 320px;
+            height: 100%;
+            color: #000;
+            z-index: 2;
+            -webkit-transition: all .7s ease-out .1s;
+            -moz-transition: all .7s ease-out .1s;
+            -o-transition: all .7s ease-out .1s;
+            transition: all .7s ease-out .1s
+        }
+
+        .contain2 span{
+            display: block;
+            font-size: 20px;
+            color: white;
+            text-align: center;
+            line-height: 60px;
+        }
+
+        .contain3 {
+            margin: 0 auto;
+            position: relative;
+            padding-top:60px;
+            width: 100%;
+            max-width: 320px;
+            _width: 320px;
+            height: 100%;
+            color: #000;
+            z-index: 2;
+            -webkit-transition: all .7s ease-out .1s;
+            -moz-transition: all .7s ease-out .1s;
+            -o-transition: all .7s ease-out .1s;
+            transition: all .7s ease-out .1s
+        }
+        .contain3 h2{
+            font-size: 25px;
+            font-weight: 900;
+            color: lightpink;
+            text-align: center;
+            line-height: 60px;
+        }
+        .contain3 span{
+            display: block;
+            font-size: 20px;
+            color: blanchedalmond;
+            text-align: center;
+            line-height: 60px;
+        }
+
+        .contain4 {
+            margin: 0 auto;
+            position: relative;
+            padding-top:60px;
+            width: 100%;
+            max-width: 320px;
+            _width: 320px;
+            height: 100%;
+            color: #000;
+            z-index: 2;
+            -webkit-transition: all .7s ease-out .1s;
+            -moz-transition: all .7s ease-out .1s;
+            -o-transition: all .7s ease-out .1s;
+            transition: all .7s ease-out .1s
+        }
+
+        .contain4 span{
+            display: block;
+            font-size: 20px;
+            color: white;
+            text-align: center;
+            line-height: 30px;
+        }
+        .hide {
+            display: none;
+            top: 0;
+        }
+
+        .show {
+            z-index: 3;
+        }
+        .copyright {
+            position: absolute;
+            bottom: 10px;
+            width: 100%;
+            height: 48px;
+            text-align: center;
+            color: #808080;
+        }
+
+
+    </style>
+    <title>手机端</title>
+    <link rel="stylesheet" href="css/animate.css"/>
+    <!--[if lt IE 8]>      <![endif]-->
+    <noscript></noscript>
+</head>
+<body>
+<div class="music" id="music">
+    <audio id="audioFir" src="audioFile/beyond.mp3" preload="none" loop/>
+</div>
+<!--滚动条-->
+<div id="tScoller">
+    <div id="scoller"></div>
+</div>
+<div id="pageMenage">
+    <!--第一页-->
+    <div class="page show">
+        <div class="contain">
+            <span class="animated fadeInDown">姓名：宫之晓</span>
+            <span class="animated fadeInDown">性别：男</span>
+            <span class="animated fadeInDown">求职：web前端开发工程师</span>
+            <span class="animated fadeInDown">籍贯：山东省泰安市</span>
+            <div class="copyright">
+                STUDY  HARD
+            </div>
+        </div>
+    </div>
+    <!--第二页-->
+    <div class="page hide">
+        <div class="contain2">
+            <span class="animated lightSpeedIn">条条大路通罗马，你却为选择走那条路耗费了整个青春。——喜欢这句话。有些时候，道路不是你选的，也许，冥冥中这就是你的宿命，当你全心投入之后，也许你就找到自己真正的方向。成功不是偶然，成功也是偶然，你不确定这样付出你何时能成功，但是你知道也只有这样，你才能成功</span>
+        </div>
+    </div>
+    <!--第三页-->
+    <div class="page hide">
+        <div class="contain3">
+            <h2 class="animated slideInUp">掌握技能情况</h2>
+            <span class="animated slideInLeft">1:node.js</span>
+            <span class="animated slideInRight">2:css/html</span>
+            <span class="animated slideInLeft">3:javascript</span>
+            <span class="animated slideInRight">自己的优势：对新技术有学习的激情，喜欢不断提高自己，对工作态度一直要求很高，希望自己做好每一件工作任务</span>
+            <div class="copyright">
+                FIGHTING
+            </div>
+        </div>
+    </div>
+
+    <div class="page hide">
+        <div class="contain4">
+           <span class="animated fadeIn">1、All things in their being are good for something.
+　　天生我才必有用。</br>2、Difficult circumstances serve as a textbook of life for people.
+　　困难坎坷是人们的生活教科书。</br>3、Failure is the mother of success.——Thomas Paine
+　　失败乃成功之母。</br>4、For man is man and master of his fate.
+　　人就是人，是自己命运的主人。</br>5、The unexamined life is not worth living.——Socrates
+　　混混噩噩的生活不值得过。——苏格拉底</span>
+            <div class="copyright">
+                GOING ON
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<script src="js/turning.js"></script>
+<script>
+    ~function () {
+        var music = document.getElementById("music"), audioFir = document.getElementById("audioFir");
+        window.setTimeout(function () {
+            audioFir.play();
+            audioFir.addEventListener("canplay", function () {
+                music.style.display = "block";
+                music.className = "music musicMove";
+            }, false);
+        }, 500);
+        music.addEventListener("click", function () {
+            if (audioFir.paused) {
+                audioFir.play();
+                music.className = "music musicMove";
+                return;
+            }
+            audioFir.pause();
+            music.className = "music";
+        }, false);
+    }();
+    window.onload = function () {
+        var userIntTimer = [],
+                userSetTimer = []
+        t('pageMenage').move(getnowpage);
+        function getnowpage(m) {
+            t.reset();
+            var userIntTimerNum = userIntTimer.length, userSetTimerNum = userSetTimer.length;
+            for (var i = 0; i < userIntTimerNum; i++) {
+                clearInterval(userIntTimer[i]);
+                if (i == userIntTimerNum - 1)
+                    userIntTimer = [];
+            }
+            for (var i = 0; i < userSetTimerNum; i++) {
+                clearTimeout(userSetTimer[i]);
+                if (i == userSetTimerNum - 1)
+                    userSetTimer = [];
+            }
+        }
+
+    }
+</script>
+</body>
+</html>
